@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="shortcut icon" href="images\weather-app.png" type="png">
+    <title>Weather</title>
+
+</head>
+
+<body>
+    <div class="head-container">
+        <div class="side-navbar">
+            <div class="logo-container">
+                <img id="logo" src="images\weather-app.png" alt="">
+            </div>
+            <div class="navbar-items">
+                <button class="weather">
+                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1;"
+                        viewBox="0 0 576 512">
+                        <path
+                            d="M510.5 225.5c-6.9-37.2-39.3-65.5-78.5-65.5-12.3 0-23.9 3-34.3 8-17.4-24.1-45.6-40-77.7-40-53 0-96 43-96 96 0 .5.2 1.1.2 1.6C187.6 233 160 265.2 160 304c0 44.2 35.8 80 80 80h256c44.2 0 80-35.8 80-80 0-39.2-28.2-71.7-65.5-78.5zm-386.4 34.4c-37.4-37.4-37.4-98.3 0-135.8 34.6-34.6 89.1-36.8 126.7-7.4 20-12.9 43.6-20.7 69.2-20.7.7 0 1.3.2 2 .2l8.9-26.7c3.4-10.2-6.3-19.8-16.5-16.4l-75.3 25.1-35.5-71c-4.8-9.6-18.5-9.6-23.3 0l-35.5 71-75.3-25.1c-10.2-3.4-19.8 6.3-16.4 16.5l25.1 75.3-71 35.5c-9.6 4.8-9.6 18.5 0 23.3l71 35.5-25.1 75.3c-3.4 10.2 6.3 19.8 16.5 16.5l59.2-19.7c-.2-2.4-.7-4.7-.7-7.2 0-12.5 2.3-24.5 6.2-35.9-3.6-2.7-7.1-5.2-10.2-8.3zm69.8-58c4.3-24.5 15.8-46.4 31.9-64-9.8-6.2-21.4-9.9-33.8-9.9-35.3 0-64 28.7-64 64 0 18.7 8.2 35.4 21.1 47.1 11.3-15.9 26.6-28.9 44.8-37.2zm330.6 216.2c-7.6-4.3-17.4-1.8-21.8 6l-36.6 64c-4.4 7.7-1.7 17.4 6 21.8 2.5 1.4 5.2 2.1 7.9 2.1 5.5 0 10.9-2.9 13.9-8.1l36.6-64c4.3-7.7 1.7-17.4-6-21.8zm-96 0c-7.6-4.3-17.4-1.8-21.8 6l-36.6 64c-4.4 7.7-1.7 17.4 6 21.8 2.5 1.4 5.2 2.1 7.9 2.1 5.5 0 10.9-2.9 13.9-8.1l36.6-64c4.3-7.7 1.7-17.4-6-21.8zm-96 0c-7.6-4.3-17.4-1.8-21.8 6l-36.6 64c-4.4 7.7-1.7 17.4 6 21.8 2.5 1.4 5.2 2.1 7.9 2.1 5.5 0 10.9-2.9 13.9-8.1l36.6-64c4.3-7.7 1.7-17.4-6-21.8zm-96 0c-7.6-4.3-17.4-1.8-21.8 6l-36.6 64c-4.4 7.7-1.7 17.4 6 21.8 2.5 1.4 5.2 2.1 7.9 2.1 5.5 0 10.9-2.9 13.9-8.1l36.6-64c4.3-7.7 1.7-17.4-6-21.8z">
+                        </path>
+                    </svg>
+                    <div class="navbar-items-heading">Weather</div>
+                </button>
+                <button class="cities">
+                    <svg style="width: 20px; height: 20px; overflow: visible; opacity: 1; z-index: 1;"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M48 48a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm448 16H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z">
+                        </path>
+                    </svg>
+                    <div class="navbar-items-heading">Cities</div> 
+                </button>
+                <button class="map">
+                    <svg style="width: 20px; height: 20px; overflow: visible; opacity: 1; z-index: 1;"
+                        viewBox="0 0 576 512">
+                        <path
+                            d="M0 117.66v346.32c0 11.32 11.43 19.06 21.94 14.86L160 416V32L20.12 87.95A32.006 32.006 0 0 0 0 117.66zM192 416l192 64V96L192 32v384zM554.06 33.16L416 96v384l139.88-55.95A31.996 31.996 0 0 0 576 394.34V48.02c0-11.32-11.43-19.06-21.94-14.86z">
+                        </path>
+                    </svg>
+                    <div class="navbar-items-heading">Map</div>
+                </button>
+                <button class="settings">
+                    <svg style="width: 20px; height: 20px; overflow: visible; opacity: 1; z-index: 1;"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M496 384H160v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h80v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h336c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160h-80v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h336v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h80c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160H288V48c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16C7.2 64 0 71.2 0 80v32c0 8.8 7.2 16 16 16h208v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h208c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16z">
+                        </path>
+                    </svg>
+                    <div class="navbar-items-heading">Settings</div>
+                </button>
+            </div>
+        </div>
+        <div class="middle-items-container">
+            <div class="searchbar-container">
+                <div id="search-search-items">
+                    <input id="searchbar" type="search" required>
+                    <label for="searchbar">Search for cities</label>
+                    <div class="search-items-container">
+                        <ul style="list-style-type: none;" id="search-items">
+                           
+                        </ul>
+                    </div>
+
+                </div>
+                <button id="signout">Log Out</button>
+                <button id="create-account-btn" class="create-account-button">Login</button>
+            </div>
+           
+            <div class="main-container">
+                <div class="main-middle-items-contentbox">
+                    <div class="current-weather-details">
+                        <div class="current-place-weather-details">
+                            <div class="location-info">
+                                <div id="weather-place-name" style="color: #f0f1f1ff">Madrid</div>
+                                <div id="humidity">Humidity : 0%</div>
+                            </div>
+                            <div class="location-temperature">
+                                <div id="degree-counter">31&deg;</div>
+                            </div>
+                        </div>
+                        <div class="weather-type-photo">
+                            <img id="weather-image" src="images\sun-159392_640.png" alt="">
+                        </div>
+                    </div>
+                    <div class="today-forecast-current-weather-place">
+                        <div id="forecast-header" style="font-family: 'Rubik', sans-serif;">
+                            TODAY'S FORECAST
+                        </div>
+                        <div class="hourly-weather-forecast-details">
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">6:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="current-time-weather-degree">25&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">9:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">28&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">12:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">33&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">3:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">34&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">6:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="current-time-weather-degree">10&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">9:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\cloudy.png" alt="">
+                                <div class="current-time-weather-degree">20&deg;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="air-condition-forecast">
+                        <div class="top-header-air-conditions">
+                            <span id="air-condition-header">AIR CONDITIONS</span>
+                            <button id="see-more-button">See more</button>
+                        </div>
+                        <div id="conditions-gap">
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 256 512">
+                                        <path
+                                            d="M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V224c0-17.673 14.327-32 32-32s32 14.327 32 32v104.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Real Feel</span>
+                                </div>
+                                <div id="air-condition-real-feel" class="air-condition-detail"></div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M156.7 256H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h142.2c15.9 0 30.8 10.9 33.4 26.6 3.3 20-12.1 37.4-31.6 37.4-14.1 0-26.1-9.2-30.4-21.9-2.1-6.3-8.6-10.1-15.2-10.1H81.6c-9.8 0-17.7 8.8-15.9 18.4 8.6 44.1 47.6 77.6 94.2 77.6 57.1 0 102.7-50.1 95.2-108.6C249 291 205.4 256 156.7 256zM16 224h336c59.7 0 106.8-54.8 93.8-116.7-7.6-36.2-36.9-65.5-73.1-73.1-55.4-11.6-105.1 24.9-114.9 75.5-1.9 9.6 6.1 18.3 15.8 18.3h32.8c6.7 0 13.1-3.8 15.2-10.1C325.9 105.2 337.9 96 352 96c19.4 0 34.9 17.4 31.6 37.4-2.6 15.7-17.4 26.6-33.4 26.6H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16zm384 32H243.7c19.3 16.6 33.2 38.8 39.8 64H400c26.5 0 48 21.5 48 48s-21.5 48-48 48c-17.9 0-33.3-9.9-41.6-24.4-2.9-5-8.7-7.6-14.5-7.6h-33.8c-10.9 0-19 10.8-15.3 21.1 17.8 50.6 70.5 84.8 129.4 72.3 41.2-8.7 75.1-41.6 84.7-82.7C526 321.5 470.5 256 400 256z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Wind</span>
+                                </div>
+                                <div id="air-condition-wind-speed" class="air-condition-detail">0.2 km/h</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 352 512">
+                                        <path
+                                            d="M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Chance of rain</span>
+                                </div>
+                                <div id="air-condition-chance-rain" class="air-condition-detail">0%</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">UV Index</span>
+                                </div>
+                                <div id="air-condition-uv-index" class="air-condition-detail">3</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 640 512">
+                                        <path
+                                            d="M575.2 325.7c.2-1.9.8-3.7.8-5.6 0-35.3-28.7-64-64-64-12.6 0-24.2 3.8-34.1 10-17.6-38.8-56.5-66-101.9-66-61.8 0-112 50.1-112 112 0 3 .7 5.8.9 8.7-49.6 3.7-88.9 44.7-88.9 95.3 0 53 43 96 96 96h272c53 0 96-43 96-96 0-42.1-27.2-77.4-64.8-90.4zm-430.4-22.6c-43.7-43.7-43.7-114.7 0-158.3 43.7-43.7 114.7-43.7 158.4 0 9.7 9.7 16.9 20.9 22.3 32.7 9.8-3.7 20.1-6 30.7-7.5L386 81.1c4-11.9-7.3-23.1-19.2-19.2L279 91.2 237.5 8.4C232-2.8 216-2.8 210.4 8.4L169 91.2 81.1 61.9C69.3 58 58 69.3 61.9 81.1l29.3 87.8-82.8 41.5c-11.2 5.6-11.2 21.5 0 27.1l82.8 41.4-29.3 87.8c-4 11.9 7.3 23.1 19.2 19.2l76.1-25.3c6.1-12.4 14-23.7 23.6-33.5-13.1-5.4-25.4-13.4-36-24zm-4.8-79.2c0 40.8 29.3 74.8 67.9 82.3 8-4.7 16.3-8.8 25.2-11.7 5.4-44.3 31-82.5 67.4-105C287.3 160.4 258 140 224 140c-46.3 0-84 37.6-84 83.9z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Sunrise</span>
+                                </div>
+                                <div id="air-condition-sunrise" class="air-condition-detail">3</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 576 512">
+                                        <path
+                                            d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Visibility</span>
+                                </div>
+                                <div id="air-condition-visibility" class="air-condition-detail">3</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 640 512">
+                                        <path
+                                            d="M575.2 325.7c.2-1.9.8-3.7.8-5.6 0-35.3-28.7-64-64-64-12.6 0-24.2 3.8-34.1 10-17.6-38.8-56.5-66-101.9-66-61.8 0-112 50.1-112 112 0 3 .7 5.8.9 8.7-49.6 3.7-88.9 44.7-88.9 95.3 0 53 43 96 96 96h272c53 0 96-43 96-96 0-42.1-27.2-77.4-64.8-90.4zm-430.4-22.6c-43.7-43.7-43.7-114.7 0-158.3 43.7-43.7 114.7-43.7 158.4 0 9.7 9.7 16.9 20.9 22.3 32.7 9.8-3.7 20.1-6 30.7-7.5L386 81.1c4-11.9-7.3-23.1-19.2-19.2L279 91.2 237.5 8.4C232-2.8 216-2.8 210.4 8.4L169 91.2 81.1 61.9C69.3 58 58 69.3 61.9 81.1l29.3 87.8-82.8 41.5c-11.2 5.6-11.2 21.5 0 27.1l82.8 41.4-29.3 87.8c-4 11.9 7.3 23.1 19.2 19.2l76.1-25.3c6.1-12.4 14-23.7 23.6-33.5-13.1-5.4-25.4-13.4-36-24zm-4.8-79.2c0 40.8 29.3 74.8 67.9 82.3 8-4.7 16.3-8.8 25.2-11.7 5.4-44.3 31-82.5 67.4-105C287.3 160.4 258 140 224 140c-46.3 0-84 37.6-84 83.9z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Sunset</span>
+                                </div>
+                                <div id="air-condition-sunset" class="air-condition-detail">3</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 576 512">
+                                        <path
+                                            d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Pressure</span>
+                                </div>
+                                <div id="air-condition-pressure" class="air-condition-detail">3</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="main-third-items-box">
+                    <div class="future-week-days-forecast-header">
+                        7-DAY FORECAST
+                    </div>
+                    <div class="future-week-days-forecast-details">
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Today</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Tue</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Wed</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Thu</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Fri</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Sat</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cities-container">
+                <div class="cities-middle-items-contentbox">
+                    <div class="cities-container-middle-items">
+                        <img class="cities-items-photo" src="images/sun-159392_640.png" alt="">
+                        <div class="cities-items-place-name-time">
+                            <div class="cities-items-place-name">
+                                Madrid
+                            </div>
+                            <div class="cities-items-place-time">
+                                10:23
+                            </div>
+                        </div>
+                        <div class="cities-items-degree">31&deg;</div>
+                    </div>
+                    <div class="cities-container-middle-items">
+                        <img class="cities-items-photo" src="images/sun-159392_640.png" alt="">
+                        <div class="cities-items-place-name-time">
+                            <div class="cities-items-place-name">
+                                Madrid
+                            </div>
+                            <div class="cities-items-place-time">
+                                10:23
+                            </div>
+                        </div>
+                        <div class="cities-items-degree">31&deg;</div>
+                    </div>
+                    <div class="cities-container-middle-items">
+                        <img class="cities-items-photo" src="images/sun-159392_640.png" alt="">
+                        <div class="cities-items-place-name-time">
+                            <div class="cities-items-place-name">
+                                Madrid
+                            </div>
+                            <div class="cities-items-place-time">
+                                10:23
+                            </div>
+                        </div>
+                        <div class="cities-items-degree">31&deg;</div>
+                    </div>
+                    <div class="cities-container-middle-items">
+                        <img class="cities-items-photo" src="images/sun-159392_640.png" alt="">
+                        <div class="cities-items-place-name-time">
+                            <div class="cities-items-place-name">
+                                Madrid
+                            </div>
+                            <div class="cities-items-place-time">
+                                10:23
+                            </div>
+                        </div>
+                        <div class="cities-items-degree">31&deg;</div>
+                    </div>
+                </div>
+                <div class="cities-third-items-box">
+                    <div class="cities-current-place-weather-details-container">
+                        <div class="cities-current-place-weather-details">
+                            <div class="cities-location-info">
+                                <div id="cities-weather-place-name" style="color: #f0f1f1ff">Bokaro</div>
+                                <div id="cities-humidity">Humidity : 0%</div>
+                            </div>
+                            <div class="cities-location-temperature">
+                                <div id="cities-degree-counter">31&deg;</div>
+                            </div>
+                        </div>
+                        <div class="cities-weather-type-photo">
+                            <img id="cities-weather-image" src="images/sun-159392_640.png" alt="">
+                        </div>
+                    </div>
+                    <div class="cities-today-forecast">
+                        <div class="cities-today-forecast-header">
+                            TODAY FORECAST
+                        </div>
+                        <div class="cities-hourly-weather-forecast-details">
+                            <div class="cities-specific-hourly-weather-details">
+                                <div class="cities-current-time-weather">6:00 AM</div>
+                                <img class="cities-time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="cities-current-time-weather-degree">25&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="cities-specific-hourly-weather-details">
+                                <div class="cities-current-time-weather">12:00 AM</div>
+                                <img class="cities-time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="cities-current-time-weather-degree">25&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="cities-specific-hourly-weather-details">
+                                <div class="cities-current-time-weather">9:00 PM</div>
+                                <img class="cities-time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="cities-current-time-weather-degree">25&deg;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cities-future-week-days-forecast-container">
+                        <div class="cities-future-week-days-forecast-header">
+                            3-DAY FORECAST
+                        </div>
+                        <div class="cities-future-week-days-forecast-details">
+                            <div class="cities-future-week-days-forecast-details-item">
+                                <span class="cities-week-days-name">Today</span>
+                                <div class="cities-future-week-days-forecast-details-item-weather">
+                                    <img class="cities-week-days-weather-photo" src="images\small sun.png" alt="">
+                                    <span class="cities-week-days-weather-type">Sunny</span>
+                                </div>
+                                <div class="cities-week-days-temp">
+                                    <span>36<span style="color: rgb(147, 147, 147);">/22</span></span>
+                                </div>
+                            </div>
+                            <div class="cities-future-week-days-forecast-details-item">
+                                <span class="cities-week-days-name">Today</span>
+                                <div class="cities-future-week-days-forecast-details-item-weather">
+                                    <img class="cities-week-days-weather-photo" src="images\small sun.png" alt="">
+                                    <span class="cities-week-days-weather-type">Sunny</span>
+                                </div>
+                                <div class="cities-week-days-temp">
+                                    <span>36<span style="color: rgb(147, 147, 147);">/22</span></span>
+                                </div>
+                            </div>
+                            <div class="cities-future-week-days-forecast-details-item">
+                                <span class="cities-week-days-name">Today</span>
+                                <div class="cities-future-week-days-forecast-details-item-weather">
+                                    <img class="cities-week-days-weather-photo" src="images\small sun.png" alt="">
+                                    <span class="cities-week-days-weather-type">Sunny</span>
+                                </div>
+                                <div class="cities-week-days-temp">
+                                    <span>36<span style="color: rgb(147, 147, 147);">/22</span></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <div class="map-middle-items-contentbox">
+                    <div class="current-weather-details">
+                        <div class="current-place-weather-details">
+                            <div class="location-info">
+                                <div id="weather-place-name" style="color: #f0f1f1ff">Madrid</div>
+                                <div id="humidity">Humidity : 0%</div>
+                            </div>
+                            <div class="location-temperature">
+                                <div id="degree-counter">31&deg;</div>
+                            </div>
+                        </div>
+                        <div class="weather-type-photo">
+                            <img id="weather-image" src="images\sun-159392_640.png" alt="">
+                        </div>
+                    </div>
+                    <div class="today-forecast-current-weather-place">
+                        <div id="forecast-header" style="font-family: 'Rubik', sans-serif;">
+                            TODAY'S FORECAST
+                        </div>
+                        <div class="hourly-weather-forecast-details">
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">6:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="current-time-weather-degree">25&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">9:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">28&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">12:00 AM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">33&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">3:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\small sun.png" alt="">
+                                <div class="current-time-weather-degree">34&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">6:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\partial cloud.png" alt="">
+                                <div class="current-time-weather-degree">10&deg;</div>
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="specific-hourly-weather-details">
+                                <div class="current-time-weather">9:00 PM</div>
+                                <img class="time-specific-weather-photo" src="images\cloudy.png" alt="">
+                                <div class="current-time-weather-degree">20&deg;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="air-condition-forecast">
+                        <div class="top-header-air-conditions">
+                            <span id="air-condition-header">AIR CONDITIONS</span>
+                            <button id="see-more-button">See more</button>
+                        </div>
+                        <div id="conditions-gap">
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 256 512">
+                                        <path
+                                            d="M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V224c0-17.673 14.327-32 32-32s32 14.327 32 32v104.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Real Feel</span>
+                                </div>
+                                <div id="air-condition-real-feel" class="air-condition-detail"></div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M156.7 256H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h142.2c15.9 0 30.8 10.9 33.4 26.6 3.3 20-12.1 37.4-31.6 37.4-14.1 0-26.1-9.2-30.4-21.9-2.1-6.3-8.6-10.1-15.2-10.1H81.6c-9.8 0-17.7 8.8-15.9 18.4 8.6 44.1 47.6 77.6 94.2 77.6 57.1 0 102.7-50.1 95.2-108.6C249 291 205.4 256 156.7 256zM16 224h336c59.7 0 106.8-54.8 93.8-116.7-7.6-36.2-36.9-65.5-73.1-73.1-55.4-11.6-105.1 24.9-114.9 75.5-1.9 9.6 6.1 18.3 15.8 18.3h32.8c6.7 0 13.1-3.8 15.2-10.1C325.9 105.2 337.9 96 352 96c19.4 0 34.9 17.4 31.6 37.4-2.6 15.7-17.4 26.6-33.4 26.6H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16zm384 32H243.7c19.3 16.6 33.2 38.8 39.8 64H400c26.5 0 48 21.5 48 48s-21.5 48-48 48c-17.9 0-33.3-9.9-41.6-24.4-2.9-5-8.7-7.6-14.5-7.6h-33.8c-10.9 0-19 10.8-15.3 21.1 17.8 50.6 70.5 84.8 129.4 72.3 41.2-8.7 75.1-41.6 84.7-82.7C526 321.5 470.5 256 400 256z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Wind</span>
+                                </div>
+                                <div id="air-condition-wind-speed" class="air-condition-detail">0.2 km/h</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 352 512">
+                                        <path
+                                            d="M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">Chance of rain</span>
+                                </div>
+                                <div id="air-condition-chance-rain" class="air-condition-detail">0%</div>
+                            </div>
+                            <div class="air-condition-forecast-items">
+                                <div class="air-condition-forecast-heading">
+                                    <svg style="width: 24px; height: 24px; overflow: visible; opacity: 1; z-index: 1; fill: rgb(147, 153, 162);"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z">
+                                        </path>
+                                    </svg>
+                                    <span class="air-condition-detail-header">UV Index</span>
+                                </div>
+                                <div id="air-condition-uv-index" class="air-condition-detail">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-third-items-box">
+                    <div class="future-week-days-forecast-header">
+                        7-DAY FORECAST
+                    </div>
+                    <div class="future-week-days-forecast-details">
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Today</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+
+                            <!-- <span class="week-days-temp"><span style="color: white;">36</span>/22</span> -->
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Tue</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Wed</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Thu</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Fri</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Sat</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="week-days-weather-type">Sunny</span>
+                            </div>
+                            <span class="week-days-temp"><span style="color: white;">36</span>/22</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-container">
+                <div class="settings-middle-items-contentbox">
+                </div>
+                <div class="settings-third-items-box">
+                    <div class="future-week-days-forecast-header">
+                        7-DAY FORECAST
+                    </div>
+                    <div class="future-week-days-forecast-details">
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                        <div class="future-week-days-forecast-details-item">
+                            <span class="settings-week-days-name">Sun</span>
+                            <div class="future-week-days-forecast-details-item-weather">
+                                <img class="settings-week-days-weather-photo" src="images\small sun.png" alt="">
+                                <span class="settings-week-days-weather-type">Sunny</span>
+                            </div>
+                            <div class="settings-week-days-temp">
+                                <div>Max - 36&deg;</div>
+                                <div>Min - 22&deg;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-signup-form">
+        <form class="login-form">
+            <h1>LOGIN</h1>
+            <div class="login-email-container">
+                <input type="text" id="login-email" required>
+                <label for="login-email">Email</label>
+            </div>
+            <div class="login-password-container">
+                <input type="password" id="login-password" required>
+                <label for="login-password">Password</label>
+            </div>
+            <span id="goToForgotPassword">Forgot Password?</span>
+            <button id="login-submit" type="button">Login</button>
+            <div id="goToSignup">Create new Account</div>
+        </form>
+
+        <form class="signup-form">
+            <h1>Sign Up</h1>
+
+            <div class="signup-username-container">
+                <input type="text" id="signup-username" required>
+                <label for="signup-username">Username</label>
+            </div>
+            <div class="signup-email-container">
+                <input type="text" id="signup-email" required>
+                <label for="signup-email">Email</label>
+            </div>
+            <div class="signup-password-container">
+                <input type="password" id="signup-password" required>
+                <label for="signup-password">Password</label>
+            </div>
+            <button id="signup-submit" type="button">Sign Up</button>
+            <div id="goToLogin">Already have an account?</div>
+        </form>
+
+        <form class="forgot-form">
+            <h1>Reset Password</h1>
+            <p id="forgot-para">Enter your Email to reset Password through<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sent
+                link to your Email ID</p>
+            <div class="forgot-email-container">
+                <input type="text" id="forgotemail" required>
+                <label for="signup-email">Email</label>
+            </div>
+
+            <button id="forgot-button" type="button">SEND</button>
+        </form>
+
+
+        <button id="back-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M22.2859 10.4783H4.45977L13.5443 2.54456C13.7067 2.40938 13.836 2.2468 13.9243 2.06668C14.0127 1.88656 14.0582 1.69266 14.0582 1.49671C14.0582 1.30076 14.0127 1.10686 13.9243 0.926738C13.836 0.746621 13.7067 0.584043 13.5443 0.448856C13.3895 0.307012 13.2033 0.194092 12.9971 0.116937C12.7908 0.0397825 12.5688 0 12.3444 0C12.1201 0 11.898 0.0397825 11.6918 0.116937C11.4855 0.194092 11.2994 0.307012 11.1446 0.448856L1.54588 8.83168C0.707601 9.57955 0.192633 10.5584 0.0889288 11.601C0.0889288 11.7507 0.003226 11.8255 0.003226 11.9752C-0.0103513 12.1288 0.0190626 12.2829 0.0889288 12.4243C0.209808 13.4629 0.722288 14.437 1.54588 15.1936L11.1446 23.5765C11.4639 23.8498 11.8938 24.002 12.3409 24C12.7879 23.998 13.2161 23.842 13.5322 23.5659C13.8483 23.2899 14.0269 22.916 14.0292 22.5255C14.0315 22.1351 13.8572 21.7596 13.5443 21.4808L4.54547 13.4722H22.2859C22.7405 13.4722 23.1765 13.3145 23.498 13.0337C23.8194 12.753 24 12.3723 24 11.9752C24 11.5782 23.8194 11.1975 23.498 10.9167C23.1765 10.636 22.7405 10.4783 22.2859 10.4783Z"
+                    fill="white" />
+            </svg>
+        </button>
+
+    </div>
+    <div class="popup-alert">
+
+    </div>
+
+    <script src="/index.js"></script>
+    <script type="module" src="login.js"></script>
+
+</body>
+
+</html>
