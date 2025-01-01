@@ -1,12 +1,12 @@
 let typingTimer;
-var api_url = `http://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=Shimla&days=7`
-var search_url = `http://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=kanpur`
+var api_url = `https://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=Shimla&days=7`
+var search_url = `https://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=kanpur`
 var dataGet
 let searchData
 
 function onTypingFinished() {
     // const location = searchInput.value
-    getApi(`http://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=${dataGet}&days=7`)
+    getApi(`https://api.weatherapi.com/v1/forecast.json?key=66107de3539f4c5cb6a35647243112&q=${dataGet}&days=7`)
 }
 
 // function onKeyUpEvent() {
@@ -26,7 +26,7 @@ searchInput.addEventListener("keyup", () => {
     timeoutTimeout = setTimeout(() => {
         let search = searchInput.value
         // console.log(`search data hello2${search}`)
-        getSearch(`http://api.weatherapi.com/v1/search.json?key=66107de3539f4c5cb6a35647243112&q=${search}&days=7`)
+        getSearch(`https://api.weatherapi.com/v1/search.json?key=66107de3539f4c5cb6a35647243112&q=${search}&days=7`)
     }, 300);
     // console.log(search)
 })
