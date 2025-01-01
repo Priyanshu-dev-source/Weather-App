@@ -1,20 +1,20 @@
 import { alertPopUp, openScreen } from "./index.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, setPersistence, browserLocalPersistence, sendPasswordResetEmail,} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
-import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, setPersistence, browserLocalPersistence, sendPasswordResetEmail,} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 
 const firebaseConfig = {
-    apiKey: "YOUR API KEY",
-    authDomain: "beats-bf385.firebaseapp.com",
-    databaseURL: "YOUR BATABASE URL",
-    projectId: "beats-bf385",
-    storageBucket: "beats-bf385.appspot.com",
-    messagingSenderId: "368226441802",
-    appId: "YOUR APP ID",
-    measurementId: "G-3TZX1RVZSY"
-};
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

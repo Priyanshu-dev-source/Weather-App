@@ -1,12 +1,12 @@
 let typingTimer;
-var api_url = `YOUR API KEY`
-var search_url = `YOUR API KEY`
+var api_url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=Shimla&days=7`
+var search_url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=kanpur`
 var dataGet
 let searchData
 
 function onTypingFinished() {
     // const location = searchInput.value
-    getApi(`YOUR API KEY`)
+    getApi(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${dataGet}&days=7`)
 }
 
 // function onKeyUpEvent() {
@@ -25,8 +25,8 @@ searchInput.addEventListener("keyup", () => {
     // searchItems(searchData)
     timeoutTimeout = setTimeout(() => {
         let search = searchInput.value
-        console.log(search)
-        getSearch(`YOUR API KEY`)
+        // console.log(`search data hello2${search}`)
+        getSearch(`http://api.weatherapi.com/v1/search.json?key=${process.env.WEATHER_API_KEY}&q=${search}&days=7`)
     }, 300);
     // console.log(search)
 })
@@ -40,7 +40,7 @@ async function getApi(url) {
         if (response.ok) {
             // console.log(response)
             updateData(data)
-            alertPopUp("Data received", "lightgreen")
+            // alertPopUp("Data received", "lightgreen")
         } else {
             alertPopUp("Enter location", "lightgreen")
         }
@@ -59,17 +59,18 @@ let searchDataLength
 async function getSearch(searchUrl) {
     if (searchUrl.length >=1 ) {
     try {
-            console.log({searchUrl})
+            // console.log({searchUrl})
             const response = await fetch(searchUrl);
             searchData = await response.json();
+            // console.log(`key letter search data${searchData}`);
             searchDataLength = searchData.length
             // console.log(searchData);
             // console.log(searchDataLength)
-            console.log({searchData})
+            // console.log({searchData})
             if (response.ok) {
                 searchItems(searchData)
                 // updateData(searchData)
-                alertPopUp("Data received", "lightgreen")
+                // alertPopUp("Data received", "lightgreen")
             } else {
                 alertPopUp("Enter location", "lightgreen")
             }
@@ -451,7 +452,8 @@ function alertPopUp(message, color) {
 var itemsGet
 var listItems = document.getElementById("search-items")
 function searchItems(searchData){
-    console.log({searchData})
+    // console.log({searchData})
+    // console.log("foound the data")
     document.getElementById("search-items").style.display="flex"
         listItems.innerHTML = ""
         for(let i=0;i<searchDataLength;i++){
@@ -481,6 +483,7 @@ listItems.addEventListener("click", (event) => {
     } 
     // searchItems(searchData)
 });
+// console.log("hello",dataGet);
 
 
 export { alertPopUp, openScreen };

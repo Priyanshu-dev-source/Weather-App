@@ -162,8 +162,9 @@
         /* top: 0; */
         font-size: 14px;
         font-family: var(--element-font-family);
-        left: 1.5%;
-        padding-left: 10px;
+        /* left: 1.5%; */
+        padding-top: 5px;
+        padding-left: 30px;
         color: rgb(154, 154, 154);
         top: 40%;
         transform: translateY(-50%);
